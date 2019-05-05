@@ -98,7 +98,7 @@
     "adfsNICName": "[concat('adfs-',parameters('NetworkInterfaceName'),parameters('deploymentNumber'))]",
     "adfsPubIpName": "[concat('ADFSPubIP', parameters('deploymentNumber'))]",
     "adSubnetID": "[concat(variables('vnetID'),'/subnets/',parameters('adSubnetName'))]",
-    "apiVersion": "2018-08-01",
+    "apiVersion": "2018-10-01",
     "computeApiVersion": "2018-10-01",
     "dmzSubnetID": "[concat(variables('vnetID'),'/subnets/',parameters('dmzSubnetName'))]",
     "domainJoinOptions": "3",

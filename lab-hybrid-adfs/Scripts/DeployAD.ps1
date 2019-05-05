@@ -96,7 +96,8 @@ if (!(Test-Path -Path "$($completeFile)$step")) {
 $step=4
 if (!(Test-Path -Path "$($completeFile)$step")) {
     # Configure the IP address and default gateway
-    $adapter | New-NetIPAddress `
+    $IPType = "IPv4"
+	$adapter | New-NetIPAddress `
         -AddressFamily $IPType `
         -IPAddress $IP `
         -PrefixLength $MaskBits `
