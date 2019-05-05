@@ -79,7 +79,8 @@ if (!(Test-Path -Path "$($completeFile)$step")) {
     $Gateway = $cfg.IPv4DefaultGateway.NextHop
     $MaskBits = $cfg.IPv4Address.PrefixLength
 
-    # Remove any existing IP, gateway from our ipv4 adapter
+    <#
+	# Remove any existing IP, gateway from our ipv4 adapter
     If (($adapter | Get-NetIPConfiguration).IPv4Address.IPAddress) {
         $adapter | Remove-NetIPAddress -AddressFamily $IPType -Confirm:$false
     }
@@ -87,7 +88,7 @@ if (!(Test-Path -Path "$($completeFile)$step")) {
     If (($adapter | Get-NetIPConfiguration).Ipv4DefaultGateway) {
         $adapter | Remove-NetRoute -AddressFamily $IPType -Confirm:$false
     }
-
+	#>
     #record that we got this far
     New-Item -ItemType file "$($completeFile)$step"
 }
