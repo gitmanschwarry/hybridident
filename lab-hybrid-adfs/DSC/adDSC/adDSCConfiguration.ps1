@@ -278,8 +278,8 @@ configuration DomainController
                         -ChangePasswordAtLogon $false `
                         -PasswordNeverExpires $true `
                         -server $server `
-                        -EmailAddress $UPN `
-						-Verbose
+                        -EmailAddress $UPN
+					
                 }
             }
             GetScript =  { @{} }
