@@ -1,4 +1,5 @@
-﻿param (
+﻿[cmdletbinding()]
+param (
     [Parameter(Mandatory)]
     [string]$DCFQDN,
 
@@ -53,6 +54,7 @@ if (!(Test-Path -Path "$($completeFile)1")) {
 	}
 
 	$Subject = $WapFqdn -f $instance
+    $Subject = $Subject.Replace("'","")
     $cert      = Get-ChildItem Cert:\LocalMachine\My | where {$_.Subject -eq "CN=$Subject"} -ErrorAction SilentlyContinue
 
     Install-WebApplicationProxy `
