@@ -173,8 +173,8 @@
     "adfsDSCConfigurationFunction": "adfsDSCConfiguration.ps1\\Main",
     "wapDSCConfigurationFunction": "wapDSCConfiguration.ps1\\Main",
     "singleQuote": "'",
-    "WAPPubIpDnsFQDNtmp": "[concat(variables('publicIPAddressDNSName'),'{0}.', toLower(replace(resourceGroup().location,' ','')),'.cloudapp.azure.com')]",
-    "WAPPubIpDnsFQDN": "[concat(variables('SingleQuote'),variables('WAPPubIpDnsFQDNtmp'),variables('SingleQuote'))]"
+    "WAPPubIpDnsFQDN": "[concat(variables('publicIPAddressDNSName'),'{0}.', toLower(replace(resourceGroup().location,' ','')),'.cloudapp.azure.com')]",
+    "WAPPubIpDnsFQDNother": "[concat(variables('SingleQuote'),variables('WAPPubIpDnsFQDN'),variables('SingleQuote'))]"
 
   },
   "resources": [
@@ -418,7 +418,7 @@
           "fileUris": [
             "[variables('DeployADFSFarmTemplateUri')]"
           ],
-          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('DeployADFSFarmTemplate'), ' -Acct ', parameters('adminUsername'), ' -PW ', parameters('adminPassword'), ' -WapFqdn ', variables('WAPPubIpDnsFQDN'))]"
+          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('DeployADFSFarmTemplate'), ' -Acct ', parameters('adminUsername'), ' -PW ', parameters('adminPassword'), ' -WapFqdn ', variables('WAPPubIpDnsFQDNother'))]"
         }
       }
     },
