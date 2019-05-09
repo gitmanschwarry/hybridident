@@ -13,6 +13,7 @@ $wmiDomain = Get-WmiObject Win32_NTDomain -Filter "DnsForestName = '$( (Get-WmiO
 $DCName = $wmiDomain.DomainControllerName
 $ComputerName = $wmiDomain.PSComputerName
 $Subject = $WapFqdn -f $instance
+$Subject = $Subject.Replace("'","")
 
 $DomainName=$wmiDomain.DomainName
 $DomainNetbiosName = $DomainName.split('.')[0]
